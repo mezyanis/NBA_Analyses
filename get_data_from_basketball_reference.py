@@ -4,7 +4,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
 
-def get_data_from_basketball_reference(year_start, year_end):
+def get_advanced_data_from_basketball_reference(year_start, year_end):
 
     list_data = []
     for year in range(year_start, year_end+1):
@@ -28,15 +28,29 @@ def get_data_from_basketball_reference(year_start, year_end):
     return list_data, headers
 
 
-def get_data_from_nba(years):
+def get_basic_data_from_basketball_reference(year_start, year_end):
 
     list_data = []
-    for year in years:
-        url = f'https://www.nba.com/stats/players/advanced?SeasonType=Regular+Season&Season={year}'
+    for year in range(year_start, year_end+1):
+        url = f'https://www.basketball-reference.com/leagues/NBA_{year}_per_game.html'
         html = urlopen(url)
-        soup = BeautifulSoup(html, 'html.parser')
-        trs = soup.find_all('table')
-        print(trs)
+        soup = BeautifulSoup(html)
+        headers = [th.getText() for th in soup.find_all('tr')[0].find_all('th')]
+        headers = headers[1:] + ['Season'] # columns
+        
+        rows = soup.find_all('tr')
+        player_stats_1 = [[td.getText() for td in rows[i].find_all('td')] for i in range(len(rows))]  # rows
+
+        for row in player_stats_1:
+            if row:  
+                row.append(str(year))
+
+        tmp_df = pd.DataFrame(player_stats_1, columns=headers)
+        tmp_mat = tmp_df.values
+        list_data.append(tmp_mat)
+
+    return list_data, headers
+
 
 
 def build_df(data,  columns):
@@ -52,8 +66,8 @@ def create_csv(path, df: pd.DataFrame):
     
     
 
-data, columns = get_data_from_basketball_reference(2009, 2024)
+data, columns = get_basic_data_from_basketball_reference(2009, 2024)
 
 #data, columns = get_data_from_nba(['2023-24'])
 df = build_df(data, columns)
-create_csv('advanced_data_2009_24.csv', df)
+create_csv('Datasets/basic_data_2009_24.csv', df)
