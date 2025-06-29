@@ -1,8 +1,5 @@
 # Analyse Avancée des Performances en Basketball
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/made%20with-jupyter-orange)](https://jupyter.org/)
 
 ## 🏀 Aperçu du Projet
 
