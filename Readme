@@ -1,0 +1,31 @@
+# Analyse Avancée des Performances en Basketball
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/made%20with-jupyter-orange)](https://jupyter.org/)
+
+## 🏀 Aperçu du Projet
+
+Ce dépôt contient une analyse approfondie des statistiques de performance des joueurs de basketball, utilisant des techniques avancées de science des données pour identifier des profils de joueurs et optimiser la composition d'équipe.
+
+## 📊 Contenu du Dépôt
+
+- **Notebooks d'analyse** : Jupyter notebooks détaillant chaque étape de l'analyse
+- **Jeu de données** : Données statistiques avancées complètes sur les joueurs NBA depuis la saison 2008-09 
+- **Visualisations** : Graphiques et tableaux illustrant les résultats clés
+
+## 🔍 Méthodologie
+
+Notre approche combine :
+- Analyse exploratoire des données (EDA)
+- Feature engineering 
+- Techniques de réduction de dimension (PCA, t-SNE)
+- Algorithmes de clustering (K-Means, HAC)
+- Visualisation des résultats
+
+## 📈 Principaux Résultats
+
+L'analyse révèle :
+1. Six profils distincts de joueurs avec des caractéristiques uniques
+2. Correlations significatives entre différents indicateurs de performance
+3. Des structures d'équipes distincts en fonction de leur resultats
